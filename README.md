@@ -9,18 +9,18 @@
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
-** Insert Whiteboard Drawings Here **
+* ![Request-Response Diagram](img/client-server-lab-06.jpg)
 
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
 ### Lab-06
 
-* Name of feature: 
+* Name of feature: Set Up React Repository and API keys
 
-* Estimate of time needed to complete: 
+* Estimate of time needed to complete: 2hr
 
-* Start time: 
+* Start time: 1:08PM
 
 * Finish time: 
 
@@ -32,4 +32,7 @@
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+* <https://github.com/spring-guides/tut-react-and-spring-data-rest/issues/85> for help installing axios and bootstrap,and additing them as dependencies
+
+* <>
