@@ -17,14 +17,28 @@
 ### Lab-06
 
 * Name of feature: Set Up React Repository and API keys
+Estimate of time needed to complete: 1hr
+Start time: 1:08PM
+Finish time: 1:48PM
+Actual time needed to complete: 40min
 
-* Estimate of time needed to complete: 2hr
+* Name of feature: Location
+Estimate of time needed to complete: 1hr
+Start time: 3:26PM
+Finish time: 4:30PM
+Actual time needed to complete: 1hr, 4min
 
-* Start time: 1:08PM
+* Name of feature: 
+Estimate of time needed to complete: 
+Start time: 
+Finish time: 
+Actual time needed to complete: 
 
-* Finish time: 
-
-* Actual time needed to complete: 
+* Name of feature: 
+Estimate of time needed to complete: 
+Start time: 
+Finish time: 
+Actual time needed to complete: 
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
