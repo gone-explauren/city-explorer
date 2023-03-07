@@ -4,12 +4,14 @@ import Card from 'react-bootstrap/Card'
 import React from 'react';
 import axios from 'axios';
 import './App.css'
+import CardImg from 'react-bootstrap/esm/CardImg';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      cityData: [],
       cityName: '',
       latitude: '',
       longitude: '',
@@ -49,23 +51,41 @@ class App extends React.Component {
 
   render() {
 
-    
-  let mapURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.latitude},${this.state.longitude}`;
-  console.log(mapURL);
+
+    let mapURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.latitude},${this.state.longitude}`;
+    // console.log(mapURL);
 
     return (
       <>
-        <h1>Laurel Explaurel</h1>
-        <Form onSubmit={this.citySubmit}>
-          <Form.Label>Find Your City!</Form.Label>
-          <Form.Control type="text" onChange={this.handleCityInput} />
-          <Button type="submit">Explore!</Button>
-        </Form>
-        <Card>
-          <Card.Title>{`City: ${this.state.cityName}`}</Card.Title>
-          <Card.Text>{`Lat: ${this.state.latitude}`}</Card.Text>
-          <Card.Text>{`Long: ${this.state.longitude}`}</Card.Text>
-        </Card>
+        <header>
+          <h1>Laurel Explaurel</h1>
+        </header>
+
+        <main>
+          <Form onSubmit={this.citySubmit}>
+            <Form.Label>Find Your City!</Form.Label>
+            <div>
+            <Form.Control type="text" onChange={this.handleCityInput} />
+            <Button type="submit">Explore!</Button>
+            </div>
+          </Form>
+          {this.state.error
+            ?
+            <p>{this.state.errorMessage}</p>
+            :
+            (this.state.cityName !== undefined
+              &&
+              <Card>
+                <Card.Title>{`City: ${this.state.cityName}`}</Card.Title>
+                <Card.Text>{`Lat: ${this.state.latitude}`}</Card.Text>
+                <Card.Text>{`Long: ${this.state.longitude}`}</Card.Text>
+                <CardImg src={mapURL} alt={this.state.cityName} />
+              </Card>
+            )
+          }
+        </main>
+
+        <footer></footer>
       </>
     );
   }
