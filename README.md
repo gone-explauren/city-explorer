@@ -28,17 +28,17 @@ Start time: 3:26PM
 Finish time: 4:30PM
 Actual time needed to complete: 1hr, 4min
 
-* Name of feature: 
-Estimate of time needed to complete: 
-Start time: 
-Finish time: 
-Actual time needed to complete: 
+* Name of feature: Map
+Estimate of time needed to complete: 1hr
+Start time: 9:03AM
+Finish time: 9:34AM
+Actual time needed to complete: 31min
 
-* Name of feature: 
-Estimate of time needed to complete: 
-Start time: 
-Finish time: 
-Actual time needed to complete: 
+* Name of feature: Errors
+Estimate of time needed to complete: 1hr
+Start time: 9:35AM
+Finish time: 9:56AM
+Actual time needed to complete: 21min
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
@@ -48,5 +48,3 @@ Actual time needed to complete:
 ## Credit and Collaborations
 
 * <https://github.com/spring-guides/tut-react-and-spring-data-rest/issues/85> for help installing axios and bootstrap,and additing them as dependencies
-
-* <>

@@ -14,11 +14,11 @@
 // how it works:
 
 * Get
-	* the .get() method is native to axios
-	* we pass in the URL of the data we want to access
-	* get can be very slow, and the computer will try to move on before it actually gets the data
-	* *await and async go together* and they tell the computer to wait for that data
-	* drill down to get the data using .data (ex: *console.log(starWasCharacter****.data****.results)*)
+  * the .get() method is native to axios
+  * we pass in the URL of the data we want to access
+  * get can be very slow, and the computer will try to move on before it actually gets the data
+  * *await and async go together* and they tell the computer to wait for that data
+  * drill down to get the data using .data (ex: *console.log(starWasCharacter****.data****.results)*)
 * Post
 * Delete
 * Put
@@ -137,8 +137,7 @@ export default App;
 
 -->
 
-
-## Keep Your API Private!!
+## Keep Your API Private
 
 // ***Your API is connected to your credit card, don't put it out into the world***
 
