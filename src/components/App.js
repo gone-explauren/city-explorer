@@ -15,6 +15,9 @@ class App extends React.Component {
       cityName: '',
       latitude: '',
       longitude: '',
+      weatherData: {},
+      showWeather: false,
+      showMap: false
     }
   }
 
@@ -25,14 +28,20 @@ class App extends React.Component {
     // declare an empty variable to be defined later
     let cityData;
     let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`;
-    console.log(url);
+    // console.log(url);
+    let weatherData = await axios.get(`${process.env.REACT_APP_SERVER}/weather?req=${res}`)
+    this.setState({
+      weatherData: weatherData.data,
+      showWeather: true
+    })
     try {
       cityData = await axios.get(url);
       this.setState({
         cityData: cityData.data,
         cityName: cityData.data[0].display_name,
         latitude: cityData.data[0].lat,
-        longitude: cityData.data[0].lon
+        longitude: cityData.data[0].lon,
+        showMap: true
       })
     } catch (error) {
       this.setState({
