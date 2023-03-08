@@ -40,10 +40,15 @@ Start time: 9:35AM
 Finish time: 9:56AM
 Actual time needed to complete: 21min
 
-## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
+* Name of feature: Weather (placeholder)
+Estimate of time needed to complete: 1hr
+Start time: 12:13PM
+Finish time: 1:05PM
+Actual time needed to complete: 52min
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+## Change Log
+
+* 03/08/2023 1:05PM server is working!
 
 ## Credit and Collaborations
 
