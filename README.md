@@ -11,6 +11,10 @@
 
 * ![Request-Response Diagram](img/client-server-lab-06.jpg)
 
+* ![Request-Response Diagram](img/client-server-lab-07.jpg)
+
+* ![Request-Response Diagram](img/client-server-lab-08.jpg)
+
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
@@ -48,7 +52,9 @@ Actual time needed to complete: 52min
 
 ## Change Log
 
-* 03/08/2023 1:05PM server is working!
+* 03/07/2023 3:58PM server is working!
+* 03/07/2023 5:43PM Back-end functional
+* 03/08/2023 1:05PM Front-end is functional
 
 ## Credit and Collaborations
 
