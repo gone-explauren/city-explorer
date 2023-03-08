@@ -1,10 +1,11 @@
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
 import React from 'react';
 import axios from 'axios';
-import './App.css'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import CardImg from 'react-bootstrap/esm/CardImg';
+import Weather from './Weather';
+import './App.css';
 
 
 class App extends React.Component {
@@ -15,7 +16,8 @@ class App extends React.Component {
       cityName: '',
       latitude: '',
       longitude: '',
-      weatherData: {},
+      weatherData: [],
+      error: false,
       showWeather: false,
       showMap: false
     }
@@ -25,24 +27,26 @@ class App extends React.Component {
   citySubmit = async (e) => {
     e.preventDefault()
     // console.log(this.state.cityName);
-    // declare an empty variable to be defined later
-    let cityData;
-    let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`;
-    // console.log(url);
-    let weatherData = await axios.get(`${process.env.REACT_APP_SERVER}/weather?req=${res}`)
-    this.setState({
-      weatherData: weatherData.data,
-      showWeather: true
-    })
+
+    let cityURL = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`;
+
+    let weatherURL = `${process.env.REACT_APP_SERVER}/weather?search=${this.state.cityName}`
+
     try {
-      cityData = await axios.get(url);
+      let cityData = await axios.get(cityURL);
       this.setState({
-        cityData: cityData.data,
+        cityData: cityData.data[0],
         cityName: cityData.data[0].display_name,
         latitude: cityData.data[0].lat,
         longitude: cityData.data[0].lon,
         showMap: true
       })
+      let weatherData = await axios.get(weatherURL)
+      this.setState({
+        weatherData: weatherData.data,
+        showWeather: true
+      })
+
     } catch (error) {
       this.setState({
         error: true,
@@ -60,7 +64,6 @@ class App extends React.Component {
 
   render() {
 
-
     let mapURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.latitude},${this.state.longitude}`;
     // console.log(mapURL);
 
@@ -74,8 +77,8 @@ class App extends React.Component {
           <Form onSubmit={this.citySubmit}>
             <Form.Label>Find Your City!</Form.Label>
             <div>
-            <Form.Control type="text" onChange={this.handleCityInput} />
-            <Button type="submit">Explore!</Button>
+              <Form.Control type="text" onChange={this.handleCityInput} />
+              <Button type="submit">Explore!</Button>
             </div>
           </Form>
           {this.state.error
@@ -84,12 +87,27 @@ class App extends React.Component {
             :
             (this.state.cityName !== undefined
               &&
-              <Card>
-                <Card.Title>{`City: ${this.state.cityName}`}</Card.Title>
-                <Card.Text>{`Lat: ${this.state.latitude}`}</Card.Text>
-                <Card.Text>{`Long: ${this.state.longitude}`}</Card.Text>
-                <CardImg src={mapURL} alt={this.state.cityName} />
-              </Card>
+              <>
+                <Card>
+                  <Card.Title>{`City: ${this.state.cityName}`}</Card.Title>
+                  <Card.Text>{`Lat: ${this.state.latitude}`}</Card.Text>
+                  <Card.Text>{`Long: ${this.state.longitude}`}</Card.Text>
+                  <CardImg src={mapURL} alt={this.state.cityName} />
+                </Card>
+
+                {this.state.showWeather
+                  ?
+                  <Weather
+                    cityName={this.state.cityData.display_name}
+                    weatherData={this.state.weatherData}
+                    error={this.state.error}
+                    errorMessage={this.state.errorMessage} />
+                  :
+                  <p>
+                    Sorry, weather is unavailable for this city.
+                  </p>
+                }
+              </>
             )
           }
         </main>
