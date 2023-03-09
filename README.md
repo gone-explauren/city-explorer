@@ -50,11 +50,18 @@ Start time: 12:13PM
 Finish time: 1:05PM
 Actual time needed to complete: 52min
 
+* Name of feature: Movies
+Estimate of time needed to complete: 2hr
+Start time: 
+Finish time: 
+Actual time needed to complete: 
+
 ## Change Log
 
 * 03/07/2023 3:58PM server is working!
 * 03/07/2023 5:43PM Back-end functional
 * 03/08/2023 1:05PM Front-end is functional
+* 03/08/2023 4:34PM Live weather data available
 
 ## Credit and Collaborations
 

@@ -30,8 +30,6 @@ class App extends React.Component {
 
     let cityURL = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`;
 
-    let weatherURL = `${process.env.REACT_APP_SERVER}/weather?search=${this.state.cityName}`
-
     try {
       let cityData = await axios.get(cityURL);
       this.setState({
@@ -40,23 +38,30 @@ class App extends React.Component {
         latitude: cityData.data[0].lat,
         longitude: cityData.data[0].lon,
         showMap: true
-      })
-      let weatherData = await axios.get(weatherURL)
-      this.setState({
-        weatherData: weatherData.data,
-        showWeather: true
-      })
+      }, this.weatherSubmit);
+
 
     } catch (error) {
       this.setState({
         error: true,
-        errorMessage: `An Error Occured: ${error.response.status}`
+        errorMessage: `We oops'd... Error: ${error.response.status}`
       });
     }
     // console.log(cityData);
   }
 
-  handleCityInput = (e) => {
+  weatherSubmit = async () => {
+    
+    let weatherURL = `${process.env.REACT_APP_SERVER}/weather?search=${this.state.cityName}&lat=${this.state.latitude}&lon=${this.state.longitude}`
+    
+    let weatherData = await axios.get(weatherURL)
+    this.setState({
+      weatherData: weatherData.data,
+      showWeather: true
+    })
+  }
+
+  handleInput = (e) => {
     this.setState({
       cityName: e.target.value
     });
@@ -77,7 +82,7 @@ class App extends React.Component {
           <Form onSubmit={this.citySubmit}>
             <Form.Label>Find Your City!</Form.Label>
             <div>
-              <Form.Control type="text" onChange={this.handleCityInput} />
+              <Form.Control type="text" onChange={this.handleInput} />
               <Button type="submit">Explore!</Button>
             </div>
           </Form>
@@ -92,7 +97,12 @@ class App extends React.Component {
                   <Card.Title>{`City: ${this.state.cityName}`}</Card.Title>
                   <Card.Text>{`Lat: ${this.state.latitude}`}</Card.Text>
                   <Card.Text>{`Long: ${this.state.longitude}`}</Card.Text>
-                  <CardImg src={mapURL} alt={this.state.cityName} />
+
+                  {this.state.showMap
+                    &&
+                    <CardImg src={mapURL} alt={this.state.cityName} />
+                  }
+
                 </Card>
 
                 {this.state.showWeather
@@ -100,12 +110,9 @@ class App extends React.Component {
                   <Weather
                     cityName={this.state.cityData.display_name}
                     weatherData={this.state.weatherData}
-                    error={this.state.error}
-                    errorMessage={this.state.errorMessage} />
+                   />
                   :
-                  <p>
-                    Sorry, weather is unavailable for this city.
-                  </p>
+                  <p>{this.state.errorMessage}</p>
                 }
               </>
             )
