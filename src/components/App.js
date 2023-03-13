@@ -19,7 +19,9 @@ class App extends React.Component {
       weatherData: [],
       error: false,
       showWeather: false,
-      showMap: false
+      showMap: false,
+      movieData: [],
+      showMovieInfo: false
     }
   }
 
@@ -38,7 +40,7 @@ class App extends React.Component {
         latitude: cityData.data[0].lat,
         longitude: cityData.data[0].lon,
         showMap: true
-      }, this.weatherSubmit);
+      }, this.weatherSubmit, this.movieSubmit);
 
 
     } catch (error) {
@@ -51,15 +53,27 @@ class App extends React.Component {
   }
 
   weatherSubmit = async () => {
-    
+
     let weatherURL = `${process.env.REACT_APP_SERVER}/weather?search=${this.state.cityName}&lat=${this.state.latitude}&lon=${this.state.longitude}`
-    
+
     let weatherData = await axios.get(weatherURL)
     this.setState({
       weatherData: weatherData.data,
       showWeather: true
     })
   }
+
+  movieSubmit = async () => {
+    let movieURL = `${process.env.REACT_APP_LOCALURL}/movies?search=${this.state.cityNameInput}`;
+
+    let movieData = await axios.get(movieURL)
+    this.setState({
+      movieData: movieData.data,
+      showMovieInfo: true
+    })
+  }
+
+
 
   handleInput = (e) => {
     this.setState({
@@ -110,10 +124,17 @@ class App extends React.Component {
                   <Weather
                     cityName={this.state.cityData.display_name}
                     weatherData={this.state.weatherData}
-                   />
+                  />
                   :
                   <p>{this.state.errorMessage}</p>
                 }
+
+                <Card>
+                  <Card.Title>{`this.state.movieData.title`}</Card.Title>
+                  <Card.Text>Released On: {this.state.movieData.release_date}</Card.Text>
+                  <Card.Img src={`https://api.themoviedb.org${this.state.movieData.poster_path}`} alt={this.state.movieData.title} />}
+                  <Card.Text>Overview: {this.state.movieData.overview}</Card.Text>
+                </Card>
               </>
             )
           }
