@@ -23,6 +23,15 @@ class Weather extends React.Component {
 					{idx.description}
 				</li>
 			</ul>)}, 
+			 {this.state.showWeather
+				?
+				<Weather
+					cityName={this.state.cityData.display_name}
+					weatherData={this.state.weatherData}
+				/>
+				:
+				<p>{this.state.errorMessage}</p>
+			}
 		);
 
 		return (

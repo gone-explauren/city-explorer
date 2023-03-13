@@ -1,10 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import CardImg from 'react-bootstrap/esm/CardImg';
+import FindCityForm from './FindCityForm';
+import City from './City';
 import Weather from './Weather';
+import Movie from './Movie';
 import './App.css';
 
 
@@ -16,12 +15,16 @@ class App extends React.Component {
       cityName: '',
       latitude: '',
       longitude: '',
-      weatherData: [],
-      error: false,
-      showWeather: false,
       showMap: false,
+      mapURL: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.latitude},${this.state.longitude}`,
+
+      weatherData: [],
+      showWeather: false,
+
       movieData: [],
-      showMovieInfo: false
+      showMovieInfo: false,
+
+      error: false
     }
   }
 
@@ -83,9 +86,6 @@ class App extends React.Component {
 
   render() {
 
-    let mapURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.latitude},${this.state.longitude}`;
-    // console.log(mapURL);
-
     return (
       <>
         <header>
@@ -93,54 +93,54 @@ class App extends React.Component {
         </header>
 
         <main>
-          <Form onSubmit={this.citySubmit}>
-            <Form.Label>Find Your City!</Form.Label>
-            <div>
-              <Form.Control type="text" onChange={this.handleInput} />
-              <Button type="submit">Explore!</Button>
-            </div>
-          </Form>
-          {this.state.error
-            ?
-            <p>{this.state.errorMessage}</p>
-            :
-            (this.state.cityName !== undefined
-              &&
-              <>
-                <Card>
-                  <Card.Title>{`City: ${this.state.cityName}`}</Card.Title>
-                  <Card.Text>{`Lat: ${this.state.latitude}`}</Card.Text>
-                  <Card.Text>{`Long: ${this.state.longitude}`}</Card.Text>
+          <>
 
-                  {this.state.showMap
-                    &&
-                    <CardImg src={mapURL} alt={this.state.cityName} />
-                  }
+            <FindCityForm
+              citySubmit={this.citySubmit}
+              handleInput={this.handleInput}
+            />
 
-                </Card>
+            <City
+              cityData={this.state.cityData}
+              cityName={this.state.cityName}
+              latitude={this.state.latitude}
+              longitude={this.state.longitude}
+              showMap={this.state.showMap}
+              mapURL={this.state.mapURL}
 
-                {this.state.showWeather
-                  ?
-                  <Weather
-                    cityName={this.state.cityData.display_name}
-                    weatherData={this.state.weatherData}
-                  />
-                  :
-                  <p>{this.state.errorMessage}</p>
-                }
+              citySubmit={this.citySubmit}
+            />
 
-                <Card>
-                  <Card.Title>{`this.state.movieData.title`}</Card.Title>
-                  <Card.Text>Released On: {this.state.movieData.release_date}</Card.Text>
-                  <Card.Img src={`https://api.themoviedb.org${this.state.movieData.poster_path}`} alt={this.state.movieData.title} />}
-                  <Card.Text>Overview: {this.state.movieData.overview}</Card.Text>
-                </Card>
-              </>
-            )
-          }
+            <Weather
+              cityData={this.state.cityData}
+              cityName={this.state.cityName}
+              latitude={this.state.latitude}
+              longitude={this.state.longitude}
+
+              weatherData={this.state.weatherData}
+              showWeather={this.state.showWeather}
+
+              citySubmit={this.citySubmit}
+              weatherSubmit={this.weatherSubmit}
+            />
+
+            <Movie
+              cityData={this.state.cityData}
+              cityName={this.state.cityName}
+
+              movieData={this.state.movieData}
+              showMovieInfo={this.state.showMovieInfo}
+
+              citySubmit={this.citySubmit}
+              movieSubmit={this.movieSubmit}
+            />
+
+          </>
         </main>
 
-        <footer></footer>
+        <footer>
+          <p>Copyrght Laurel Perkins, 2023</p>
+        </footer>
       </>
     );
   }
