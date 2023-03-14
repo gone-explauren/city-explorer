@@ -13,7 +13,9 @@
 
 * ![Request-Response Diagram](img/client-server-lab-07.jpg)
 
-* ![Request-Response Diagram](img/client-server-lab-08.jpg)
+* ![Request-Response Diagram](img/client-server-lab-08.png)
+
+* Request-Response Diagrams for Labs -09 and -10 unavailable because life happened.
 
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
@@ -52,9 +54,9 @@ Actual time needed to complete: 52min
 
 * Name of feature: Movies
 Estimate of time needed to complete: 2hr
-Start time: 
-Finish time: 
-Actual time needed to complete: 
+Start time: 1:32PM
+Finish time: 3:03PM
+Actual time needed to complete: 1hr, 31min
 
 ## Change Log
 
@@ -62,6 +64,7 @@ Actual time needed to complete:
 * 03/07/2023 5:43PM Back-end functional
 * 03/08/2023 1:05PM Front-end is functional
 * 03/08/2023 4:34PM Live weather data available
+* 03/10/2023 12:30PM Nothing is working anymore!
 
 ## Credit and Collaborations
 
