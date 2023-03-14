@@ -25,7 +25,7 @@ class City extends React.Component {
 
 								{this.props.showMap
 									&&
-									<CardImg src={mapURL} alt={this.props.cityName} />
+									<CardImg src={this.props.mapURL} alt={this.props.cityName} />
 								}
 
 							</Card>
