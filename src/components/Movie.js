@@ -10,6 +10,7 @@ class Movie extends React.Component {
 	render() {
 
 		return (
+
 			<>
 				{this.state.error
 					?
@@ -17,6 +18,7 @@ class Movie extends React.Component {
 					:
 					(this.state.cityName !== undefined
 						&&
+
 						<>
 							<Card>
 								<Card.Title>{`this.state.movieData.title`}</Card.Title>
@@ -25,10 +27,13 @@ class Movie extends React.Component {
 								<Card.Text>Overview: {this.state.movieData.overview}</Card.Text>
 							</Card>
 						</>
+
 					)
 				}
 			</>
+
 		)
+		
 	}
 }
 

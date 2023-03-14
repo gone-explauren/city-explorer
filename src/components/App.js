@@ -24,7 +24,8 @@ class App extends React.Component {
       movieData: [],
       showMovieInfo: false,
 
-      error: false
+      error: false,
+      errorMessage: ''
     }
   }
 
@@ -77,16 +78,17 @@ class App extends React.Component {
   }
 
 
-
   handleInput = (e) => {
     this.setState({
       cityName: e.target.value
     });
   }
 
+
   render() {
 
     return (
+
       <>
         <header>
           <h1>Laurel Explaurel</h1>
@@ -109,6 +111,9 @@ class App extends React.Component {
               mapURL={this.state.mapURL}
 
               citySubmit={this.citySubmit}
+
+              error={this.state.error}
+              errorMessage={this.state.errorMessage}
             />
 
             <Weather
@@ -122,6 +127,9 @@ class App extends React.Component {
 
               citySubmit={this.citySubmit}
               weatherSubmit={this.weatherSubmit}
+
+              error={this.state.error}
+              errorMessage={this.state.errorMessage}
             />
 
             <Movie
@@ -133,6 +141,9 @@ class App extends React.Component {
 
               citySubmit={this.citySubmit}
               movieSubmit={this.movieSubmit}
+              
+              error={this.state.error}
+              errorMessage={this.state.errorMessage}
             />
 
           </>
@@ -142,7 +153,9 @@ class App extends React.Component {
           <p>Copyrght Laurel Perkins, 2023</p>
         </footer>
       </>
+
     );
+
   }
 }
 

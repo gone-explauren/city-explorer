@@ -10,6 +10,7 @@ class Weather extends React.Component {
 	render() {
 
 		return (
+
 			<>
 				{this.state.error
 					?
@@ -17,6 +18,7 @@ class Weather extends React.Component {
 					:
 					(this.state.cityName !== undefined
 						&&
+
 						<>
 							<Card>
 								<Card.Title>`Three-Day Forecast for ${this.props.cityName}:`</Card.Title>
@@ -28,10 +30,13 @@ class Weather extends React.Component {
 								<Card.Text>{this.props.weatherData[2].description}</Card.Text>
 							</Card>
 						</>
+
 					)
 				}
 			</>
+
 		)
+		
 	}
 }
 
