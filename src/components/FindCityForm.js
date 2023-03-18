@@ -1,7 +1,4 @@
 import React from 'react';
-import axios from 'axios';
-import App from './App'
-
 import { Form, Button } from 'react-bootstrap';
 
 
