@@ -1,45 +1,39 @@
-
 import React from 'react';
-import axios from 'axios';
-import App from './App'
+import Card from 'react-bootstrap/Card';
 
 
 class Weather extends React.Component {
 
 	render() {
-		console.log(this.props.weatherData);
-		let listItems = [];
-		// console.log(this.props.weatherData.data[0].date)
-		// console.log(this.props.weatherData.data[0].date)
-
-
-		this.props.weatherData.forEach((idx) => {
-			listItems.push(
-			<ul key={idx}>
-				<li>
-					{idx.date}
-				</li>
-				<li>
-					{idx.description}
-				</li>
-			</ul>)}, 
-			 {this.state.showWeather
-				?
-				<Weather
-					cityName={this.state.cityData.display_name}
-					weatherData={this.state.weatherData}
-				/>
-				:
-				<p>{this.state.errorMessage}</p>
-			}
-		);
 
 		return (
+
 			<>
-				<h3>Forecast:</h3>
-				{listItems}
+				{this.state.error
+					?
+					<p>{this.state.errorMessage}</p>
+					:
+					(this.state.cityName !== undefined
+						&&
+
+						<>
+							<Card>
+								<Card.Title>`Three-Day Forecast for ${this.props.cityName}:`</Card.Title>
+								<Card.Text>{this.props.weatherData[0].date}</Card.Text>
+								<Card.Text>{this.props.weatherData[0].description}</Card.Text>
+								<Card.Text>{this.props.weatherData[1].date}</Card.Text>
+								<Card.Text>{this.props.weatherData[1].description}</Card.Text>
+								<Card.Text>{this.props.weatherData[2].date}</Card.Text>
+								<Card.Text>{this.props.weatherData[2].description}</Card.Text>
+							</Card>
+						</>
+
+					)
+				}
 			</>
+
 		)
+		
 	}
 }
 

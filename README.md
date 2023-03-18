@@ -15,7 +15,7 @@
 
 * ![Request-Response Diagram](img/client-server-lab-08.png)
 
-* Request-Response Diagrams for Labs -09 and -10 unavailable because life happened.
+* Request-Response Diagrams for Labs -09 and -10 unavailable because life happened, and it sucked.
 
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
@@ -71,8 +71,8 @@
 * 03/08/2023 1:05PM Front-end is functional
 * 03/08/2023 4:34PM Live weather data available
 * 03/10/2023 12:30PM Nothing is working anymore!
-* 3/18/2023 
+* 03/18/2023 ??PM Local site functional
 
 ## Credit and Collaborations
 
-* <https://github.com/spring-guides/tut-react-and-spring-data-rest/issues/85> for help installing axios and bootstrap,and additing them as dependencies
+* <https://github.com/spring-guides/tut-react-and-spring-data-rest/issues/85> helped with installing axios and bootstrap,and adding them as dependencies

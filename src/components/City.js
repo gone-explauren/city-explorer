@@ -1,7 +1,4 @@
 import React from 'react';
-import axios from 'axios';
-import App from './App'
-
 import { Card, CardImg } from 'react-bootstrap';
 
 
@@ -17,6 +14,7 @@ class City extends React.Component {
 					:
 					(this.state.cityName !== undefined
 						&&
+
 						<>
 							<Card>
 								<Card.Title>{`City: ${this.props.cityName}`}</Card.Title>
@@ -25,15 +23,18 @@ class City extends React.Component {
 
 								{this.props.showMap
 									&&
-									<CardImg src={mapURL} alt={this.props.cityName} />
+									<CardImg src={this.props.mapURL} alt={this.props.cityName} />
 								}
 
 							</Card>
 						</>
+
 					)
 				}
 			</>
+
 		)
+		
 	}
 }
 
