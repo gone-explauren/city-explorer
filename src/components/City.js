@@ -1,11 +1,17 @@
 import React from 'react';
-import axios from 'axios';
-import App from './App'
 
 import { Card, CardImg } from 'react-bootstrap';
 
 
 class City extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+		mapURL: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.props.latitude},${this.props.longitude}`,
+		}
+	};
+
 	render() {
 
 		return (
@@ -25,7 +31,7 @@ class City extends React.Component {
 
 								{this.props.showMap
 									&&
-									<CardImg src={mapURL} alt={this.props.cityName} />
+									<CardImg src={this.state.mapURL} alt={this.props.cityName} />
 								}
 
 							</Card>
@@ -37,4 +43,4 @@ class City extends React.Component {
 	}
 }
 
-export default City
+export default City;
