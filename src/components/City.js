@@ -22,7 +22,6 @@ class City extends React.Component {
 					:
 					(this.state.cityName !== undefined
 						&&
-
 						<>
 							<Card>
 								<Card.Title>{`City: ${this.props.cityName}`}</Card.Title>
@@ -31,18 +30,15 @@ class City extends React.Component {
 
 								{this.props.showMap
 									&&
-									<CardImg src={this.props.mapURL} alt={this.props.cityName} />
+									<CardImg src={this.state.mapURL} alt={this.props.cityName} />
 								}
 
 							</Card>
 						</>
-
 					)
 				}
 			</>
-
 		)
-		
 	}
 }
 
