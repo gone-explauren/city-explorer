@@ -33,7 +33,36 @@ class Weather extends React.Component {
 			// }
 		);
 
+		// return (
+
+		// 	<>
+		// 		{this.state.error
+		// 			?
+		// 			<p>{this.state.errorMessage}</p>
+		// 			:
+		// 			(this.state.cityName !== undefined
+		// 				&&
+
+		// 				<>
+		// 					<Card>
+		// 						<Card.Title>`Three-Day Forecast for ${this.props.cityName}:`</Card.Title>
+		// 						<Card.Text>{this.props.weatherData[0].date}</Card.Text>
+		// 						<Card.Text>{this.props.weatherData[0].description}</Card.Text>
+		// 						<Card.Text>{this.props.weatherData[1].date}</Card.Text>
+		// 						<Card.Text>{this.props.weatherData[1].description}</Card.Text>
+		// 						<Card.Text>{this.props.weatherData[2].date}</Card.Text>
+		// 						<Card.Text>{this.props.weatherData[2].description}</Card.Text>
+		// 					</Card>
+		// 				</>
+
+		// 			)
+		// 		}
+		// 	</>
+
+		// )
+
 		return (
+
 			<>
 				{/* optional chaining. if weatherData ever becomes not an array (if .length is undefined), optional chaining(?) will prevent this functionality from crashing */}
 				{this.props.weatherData?.length !== 0
@@ -43,6 +72,7 @@ class Weather extends React.Component {
 					</>
 				}
 			</>
+			
 		)
 	}
 }
