@@ -21,4 +21,4 @@ class FindCityForm extends React.Component {
 	}
 }
 
-export default FindCityForm
+export default FindCityForm;

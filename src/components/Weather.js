@@ -6,7 +6,6 @@ class Weather extends React.Component {
 
 	render() {
 
-		render() {
 		// console.log(this.props.weatherData);
 		let listItems = [];
 		// console.log(this.props.weatherData.data[0].date)

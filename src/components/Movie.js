@@ -5,8 +5,9 @@ import { Card, CardImg } from 'react-bootstrap';
 class Movie extends React.Component {
 
 	render() {
-
-				return (
+		// console.log(this.props.movieData[0])
+		
+		return (
 
 			<>
 				{this.props.singleMovieData.poster_path !== undefined
