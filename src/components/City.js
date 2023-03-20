@@ -3,6 +3,14 @@ import { Card, CardImg } from 'react-bootstrap';
 
 
 class City extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+		mapURL: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.props.latitude},${this.props.longitude}`,
+		}
+	};
+
 	render() {
 
 		return (
