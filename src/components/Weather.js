@@ -1,10 +1,11 @@
-
 import React from 'react';
+import Card from 'react-bootstrap/Card';
 
 
 class Weather extends React.Component {
 
 	render() {
+
 		// console.log(this.props.weatherData);
 		let listItems = [];
 		// console.log(this.props.weatherData.data[0].date)
@@ -74,7 +75,7 @@ class Weather extends React.Component {
 			</>
 			
 		)
-	}
+	
 }
 
 export default Weather

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Card, CardImg } from 'react-bootstrap';
 
 
@@ -44,3 +43,4 @@ class City extends React.Component {
 }
 
 export default City;
+
